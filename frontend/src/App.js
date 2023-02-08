@@ -1,9 +1,10 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
-import Navbar from "react-bootstrap/Navbar";
+import AddMacros from "./components/AddMacro";
 
 import MyDiet from "./components/MyDiet";
 import NavBar1 from "./components/NavBar1";
+import AddMacro from "./components/AddMacro";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <NavBar1 />
       <Container>
         <MyDiet />
+        <AddMacro />
       </Container>
     </div>
   );

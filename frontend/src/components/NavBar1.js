@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+// import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function NavBar1() {
   return (
@@ -12,8 +12,8 @@ function NavBar1() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Food Diary</Nav.Link>
-            <Nav.Link href="#pricing">Add Macros</Nav.Link>
+            <Nav.Link href="#mydiet">Food Diary</Nav.Link>
+            <Nav.Link href="#ass">Add Macros</Nav.Link>
             {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
@@ -27,8 +27,8 @@ function NavBar1() {
             </NavDropdown> */}
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">Register</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
+            <Nav.Link href="#register">Register</Nav.Link>
+            <Nav.Link eventKey={2} href="#login">
               Log in
             </Nav.Link>
           </Nav>

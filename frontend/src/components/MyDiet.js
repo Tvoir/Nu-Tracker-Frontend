@@ -1,5 +1,5 @@
 import React from "react";
-import Table from "react-bootstrap/Table"
+import Table from "react-bootstrap/Table";
 
 export default function MyDiet() {
     return (
@@ -11,6 +11,7 @@ export default function MyDiet() {
                     <th>Protein</th>
                     <th>Carbs</th>
                     <th>Fat</th>
+                    <th>actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,6 +21,7 @@ export default function MyDiet() {
                     <td>36g</td>
                     <td>40g</td>
                     <td>10g</td>
+                    <td>x</td>
                 </tr>
                 <tr>
                     <td>Fruit Cup</td>
@@ -27,6 +29,7 @@ export default function MyDiet() {
                     <td>1g</td>
                     <td>15g</td>
                     <td>0g</td>
+                    <td>x</td>
                 </tr>
             </tbody>
         </Table>
