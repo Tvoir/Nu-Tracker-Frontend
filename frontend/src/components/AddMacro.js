@@ -19,24 +19,24 @@ export default function AddMacro() {
             <tbody>
               <tr>
                 <td><Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3">
         <Form.Control type="text" placeholder="Enter food name" />
       </Form.Group></Form></td>
       <td><Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Control type="text" placeholder="Enter food name" />
+                <Form.Group className="mb-3">
+        <Form.Control type="text" placeholder="Enter calorie amount" />
       </Form.Group></Form></td>
       <td><Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Control type="text" placeholder="Enter food name" />
+                <Form.Group className="mb-3">
+        <Form.Control type="text" placeholder="Enter protein amount" />
       </Form.Group></Form></td>
       <td><Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Control type="text" placeholder="Enter food name" />
+                <Form.Group className="mb-3">
+        <Form.Control type="text" placeholder="Enter carb amount" />
       </Form.Group></Form></td>
       <td><Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Control type="text" placeholder="Enter food name" />
+                <Form.Group className="mb-3">
+        <Form.Control type="text" placeholder="Enter fat amount" />
       </Form.Group></Form></td>
       <td><Button variant="primary" type="submit">
         Submit
