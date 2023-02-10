@@ -11,27 +11,8 @@ export default function MyDiet() {
                     <th>Protein</th>
                     <th>Carbs</th>
                     <th>Fat</th>
-                    <th>actions</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>Chicken Parmesan</td>
-                    <td>800cal</td>
-                    <td>36g</td>
-                    <td>40g</td>
-                    <td>10g</td>
-                    <td>x</td>
-                </tr>
-                <tr>
-                    <td>Fruit Cup</td>
-                    <td>60cal</td>
-                    <td>1g</td>
-                    <td>15g</td>
-                    <td>0g</td>
-                    <td>x</td>
-                </tr>
-            </tbody>
         </Table>
     )
 }
