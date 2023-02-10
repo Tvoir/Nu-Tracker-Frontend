@@ -38,9 +38,9 @@ export default function AddMacro() {
                 <Form.Group className="mb-3">
         <Form.Control type="text" placeholder="Enter fat amount" />
       </Form.Group></Form></td>
-      <td><Button variant="primary" type="submit">
-        Submit
-      </Button></td>
+      <td>
+      <Button class="btn add-btn blue darken-3" method="post"> 
+      Add Meal</Button></td>
               </tr>
               
             </tbody>
