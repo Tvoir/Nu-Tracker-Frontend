@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React,{ Component } from "react";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { useState } from 'react';
 
 
-function NavBar1() {
+export default function NavBar1() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{marginBottom: "20px"}}>
       <Container>
@@ -14,7 +15,7 @@ function NavBar1() {
           <Nav className="me-auto">
             <Nav.Link href="#mydiet">Food Diary</Nav.Link>
             <Nav.Link href="#ass">Add Macros</Nav.Link>
-            <Nav.Link href="#about">About Us</Nav.Link>
+            <Nav.Link link="#about">About Us</Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link href="#register">Register</Nav.Link>
@@ -28,4 +29,3 @@ function NavBar1() {
   );
 }
 
-export default NavBar1;
