@@ -4,3 +4,11 @@ img{
     margin-right: auto;
     width: 50%;
 }
+
+p{
+    color: #a5a4a1;
+}
+
+h1, h2{
+    color: rgb(131, 125, 125);
+}
