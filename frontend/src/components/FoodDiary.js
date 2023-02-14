@@ -1,6 +1,7 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
 
+
 export default function FoodDiary(){
     return(  
     <Table striped bordered hover variant="dark">
@@ -10,12 +11,16 @@ export default function FoodDiary(){
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Calories</td>
-        <td>Proteins</td>
-        <td>Carbs</td>
-        <td>Fats</td>
-      </tr>
+    for (let r of data.list) {
+      `<tr> 
+        <td>${r.date}</td>
+        <td>${r.food}</td>
+        <td>${r.calories}</td>
+        <td>${r.protein}</td> 
+        <td>${r.carbohydrates}</td>   
+        <td>${r.fats}</td>         
+      </tr>`
+    }
   
     </tbody>
     <thead>
@@ -24,12 +29,16 @@ export default function FoodDiary(){
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Calories</td>
-        <td>Proteins</td>
-        <td>Carbs</td>
-        <td>Fats</td>
-      </tr>
+    for (let r of data.list) {
+      `<tr> 
+        <td>${r.date}</td>
+        <td>${r.food}</td>
+        <td>${r.calories}</td>
+        <td>${r.protein}</td> 
+        <td>${r.carbohydrates}</td>   
+        <td>${r.fats}</td>         
+      </tr>`
+    }
       </tbody>
       <thead>
       <tr>
@@ -37,12 +46,16 @@ export default function FoodDiary(){
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Calories</td>
-        <td>Proteins</td>
-        <td>Carbs</td>
-        <td>Fats</td>
-      </tr>
+    for (let r of data.list) {
+      `<tr> 
+        <td>${r.date}</td>
+        <td>${r.food}</td>
+        <td>${r.calories}</td>
+        <td>${r.protein}</td> 
+        <td>${r.carbohydrates}</td>   
+        <td>${r.fats}</td>         
+      </tr>`
+    }
   
     </tbody>
     <thead>
@@ -51,12 +64,16 @@ export default function FoodDiary(){
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Calories</td>
-        <td>Proteins</td>
-        <td>Carbs</td>
-        <td>Fats</td>
-      </tr>
+    for (let r of data.list) {
+      `<tr> 
+        <td>${r.date}</td>
+        <td>${r.food}</td>
+        <td>${r.calories}</td>
+        <td>${r.protein}</td> 
+        <td>${r.carbohydrates}</td>   
+        <td>${r.fats}</td>         
+      </tr>`
+    }
   
     </tbody>
     <thead>
@@ -65,12 +82,16 @@ export default function FoodDiary(){
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Calories</td>
-        <td>Proteins</td>
-        <td>Carbs</td>
-        <td>Fats</td>
-      </tr>
+    for (let r of data.list) {
+      `<tr> 
+        <td>${r.date}</td>
+        <td>${r.food}</td>
+        <td>${r.calories}</td>
+        <td>${r.protein}</td> 
+        <td>${r.carbohydrates}</td>   
+        <td>${r.fats}</td>         
+      </tr>`
+    }
   
     </tbody>
     <thead>
@@ -79,12 +100,16 @@ export default function FoodDiary(){
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Calories</td>
-        <td>Proteins</td>
-        <td>Carbs</td>
-        <td>Fats</td>
-      </tr>
+    for (let r of data.list) {
+      `<tr> 
+        <td>${r.date}</td>
+        <td>${r.food}</td>
+        <td>${r.calories}</td>
+        <td>${r.protein}</td> 
+        <td>${r.carbohydrates}</td>   
+        <td>${r.fats}</td>         
+      </tr>`
+    }
   
     </tbody>
     <thead>
@@ -93,12 +118,16 @@ export default function FoodDiary(){
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Calories</td>
-        <td>Proteins</td>
-        <td>Carbs</td>
-        <td>Fats</td>
-      </tr>
+    for (let r of data.list) {
+      `<tr> 
+        <td>${r.date}</td>
+        <td>${r.food}</td>
+        <td>${r.calories}</td>
+        <td>${r.protein}</td> 
+        <td>${r.carbohydrates}</td>   
+        <td>${r.fats}</td>         
+      </tr>`
+    }
     </tbody>
   </Table>
 )
