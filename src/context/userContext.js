@@ -1,69 +1,72 @@
-import React, { useReducer, useContext } from 'react';
-import axios from 'axios';
+import React, { createContext, useReducer } from 'react';
 
 const initialState = {
   user: null,
-  loading: true,
-  error: null
+  error: null,
 };
 
-const authReducer = (state, action) => {
+const userContext = createContext(initialState);
+
+const userReducer = (state, action) => {
   switch (action.type) {
     case 'LOGIN':
       return {
         ...state,
         user: action.payload,
-        loading: false,
-        error: null
+        error: null,
       };
     case 'LOGOUT':
       return {
         ...state,
         user: null,
-        loading: false,
-        error: null
+        error: null,
       };
     case 'ERROR':
       return {
         ...state,
-        loading: false,
-        error: action.payload
+        error: action.payload,
       };
     default:
       return state;
   }
 };
 
-const UserContext = React.createContext();
-
 const UserProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(authReducer, initialState);
+  const [state, dispatch] = useReducer(userReducer, initialState);
 
-  const login = async (username, password) => {
-    try {
-      const res = await axios.post('localhost:5000/login', {
-        username,
-        password
-      });
-      dispatch({ type: 'LOGIN', payload: res.data });
-    } catch (error) {
-      dispatch({ type: 'ERROR', payload: error.message });
-    }
+  const login = (user) => {
+    dispatch({
+      type: 'LOGIN',
+      payload: user,
+    });
   };
 
   const logout = () => {
-    dispatch({ type: 'LOGOUT' });
+    dispatch({
+      type: 'LOGOUT',
+    });
+  };
+
+  const setError = (error) => {
+    dispatch({
+      type: 'ERROR',
+      payload: error,
+    });
   };
 
   return (
-    <UserContext.Provider
-      value={{ user: state.user, loading: state.loading, error: state.error, login, logout }}
+    <userContext.Provider
+      value={{
+        user: state.user,
+        error: state.error,
+        login,
+        logout,
+        setError,
+      }}
     >
       {children}
-    </UserContext.Provider>
+    </userContext.Provider>
   );
 };
 
-const useUser = () => useContext(UserContext);
-
-export { UserProvider, useUser };
+export { userContext, UserProvider };
