@@ -31,7 +31,7 @@ const userReducer = (state, action) => {
   }
 };
 
-const UserProvider = ({ children }) => {
+const UserContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, initialState);
 
   const login = (user) => {
@@ -69,4 +69,4 @@ const UserProvider = ({ children }) => {
   );
 };
 
-export { userContext, UserProvider };
+export { userContext, UserContextProvider };
