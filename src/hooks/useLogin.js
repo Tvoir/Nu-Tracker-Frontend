@@ -11,7 +11,7 @@ export const useLogin = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.post('/api/login', { username, password });
+      const response = await axios.post('/login', { username, password });
       setUser({
         ...user,
         loggedIn: true,
