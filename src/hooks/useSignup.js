@@ -12,7 +12,7 @@ export const useSignup = () => {
       setLoading(true);
       setError(null);
 
-      const res = await axios.post('/signup', {
+      const res = await axios.post('localhost:5000/signup', {
         username,
         email,
         password,
