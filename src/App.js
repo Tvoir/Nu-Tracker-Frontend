@@ -1,20 +1,23 @@
-import React from "react";
-import Container from "react-bootstrap/Container";
-import AddMacros from "./components/AddMacro";
-
-import MyDiet from "./components/MyDiet";
-import NavBar1 from "./components/NavBar1";
-import AddMacro from "./components/AddMacro";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useUserContext } from './contexts/userContext';
+import Signup from './components/Signup';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
 
 function App() {
+  const { user } = useUserContext();
+
   return (
-    <div>
-      <NavBar1 />
-      <Container>
-        <MyDiet />
-        <AddMacro />
-      </Container>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        {/* Home page redirects to login if user is not authenticated */}
+        <Route path="/" element={user ? <Dashboard /> : <Navigate to="/login" />} />
+        
+        {/* Login and signup routes */}
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
