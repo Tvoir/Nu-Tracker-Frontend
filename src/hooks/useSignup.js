@@ -7,7 +7,7 @@ export const useSignup = () => {
   const [error, setError] = useState(null);
   const { setUserData } = useUserContext();
 
-  const signup = async (username, email, password) => {
+  const handleSignup = async (username, email, password) => {
     try {
       setLoading(true);
       setError(null);
@@ -26,5 +26,5 @@ export const useSignup = () => {
     }
   };
 
-  return { signup, loading, error };
+  return { handleSignup, loading, error };
 };

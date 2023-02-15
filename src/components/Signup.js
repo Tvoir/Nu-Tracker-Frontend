@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import useSignup from '../hooks/useSignup';
+import { useSignup } from '../hooks/useSignup';
 
 const Signup = () => {
   const [formValues, setFormValues] = useState({
     username: '',
     password: '',
     confirm_password: '',
+    email: ''
   });
 
   const { isLoading, errorMessage, handleSignup } = useSignup();
@@ -30,6 +31,16 @@ const Signup = () => {
             type="text"
             name="username"
             value={formValues.username}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            value={formValues.email}
             onChange={handleChange}
             required
           />
@@ -67,3 +78,4 @@ const Signup = () => {
 };
 
 export default Signup;
+

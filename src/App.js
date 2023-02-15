@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { useUserContext } from './contexts/userContext';
+import { useUserContext } from './hooks/useUserContext';
 import Signup from './components/Signup';
 // import Login from './components/Login';
 // import Dashboard from './components/Dashboard';
