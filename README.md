@@ -1,6 +1,5 @@
 # Nu-Tracker
 
-
 Creating an app in order for an individual to track their intake and monitor their journey.
 
 # Functions
