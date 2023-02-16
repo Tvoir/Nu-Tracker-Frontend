@@ -5,7 +5,7 @@ import Table from "react-bootstrap/Table";
 
 export default function AddMacro() {
     return (
-      <Table striped bordered hover variant="dark">
+      <Table>
         <thead>
                 <tr>
                     <th>Name</th>
@@ -19,27 +19,28 @@ export default function AddMacro() {
             <tbody>
               <tr>
                 <td><Form>
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Control type="text" placeholder="Enter food name" />
       </Form.Group></Form></td>
       <td><Form>
-                <Form.Group className="mb-3">
-        <Form.Control type="text" placeholder="Enter calorie amount" />
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Control type="text" placeholder="Enter food name" />
       </Form.Group></Form></td>
       <td><Form>
-                <Form.Group className="mb-3">
-        <Form.Control type="text" placeholder="Enter protein amount" />
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Control type="text" placeholder="Enter food name" />
       </Form.Group></Form></td>
       <td><Form>
-                <Form.Group className="mb-3">
-        <Form.Control type="text" placeholder="Enter carb amount" />
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Control type="text" placeholder="Enter food name" />
       </Form.Group></Form></td>
       <td><Form>
-                <Form.Group className="mb-3">
-        <Form.Control type="text"  placeholder="Enter fat amount" />
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Control type="text" placeholder="Enter food name" />
       </Form.Group></Form></td>
-      <td>
-      <Button variant="secondary">Add Meal</Button></td>
+      <td><Button variant="primary" type="submit">
+        Submit
+      </Button></td>
               </tr>
               
             </tbody>
