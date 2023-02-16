@@ -1,8 +1,20 @@
 import { useContext } from 'react';
-import { userContext } from '../context/userContext';
+import { UserContext } from '../context/userContext';
 
 export const useUserContext = () => {
-  const { user, login, logout } = useContext(userContext);
+  const { state, dispatch } = useContext(UserContext);
 
-  return { user, login, logout };
+  const setUserData = (userData) => {
+    dispatch({ type: 'SET_USER_DATA', payload: userData });
+  };
+
+  const setLoading = (isLoading) => {
+    dispatch({ type: 'SET_LOADING', payload: isLoading });
+  };
+
+  const setError = (error) => {
+    dispatch({ type: 'SET_ERROR', payload: error });
+  };
+
+  return { state, setUserData, setLoading, setError };
 };

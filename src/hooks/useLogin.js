@@ -1,28 +1,31 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { useUserContext } from './useUserContext';
-import axios from 'axios';
 
-export const useLogin = () => {
-  const [user, setUser] = useContext(useUserContext);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+const useLogin = () => {
+  const { setUserData } = useUserContext();
 
   const login = async (username, password) => {
-    setLoading(true);
-    setError(null);
     try {
-      const response = await axios.post('/login', { username, password });
-      setUser({
-        ...user,
-        loggedIn: true,
-        token: response.data.token
+      const response = await fetch('http://localhost:5000/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
       });
-    } catch (err) {
-      setError(err.response.data.message);
-    } finally {
-      setLoading(false);
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setUserData(data);
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 
-  return { loading, error, login };
+  return { login };
 };
+
+export default useLogin;
+
