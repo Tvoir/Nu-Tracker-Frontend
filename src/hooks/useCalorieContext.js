@@ -1,29 +1,59 @@
 import { useContext } from 'react';
-import { CalorieContext } from './calorieContext';
+import { CalorieContext } from '../context/calorieContext';
 
-const useCalorieContext = () => {
-  const { entries, setEntries } = useContext(CalorieContext);
+export const useCalorieContext = () => {
+  const { state, dispatch } = useContext(CalorieContext);
 
-  const addEntry = (entry) => {
-    setEntries([...entries, entry]);
+  const getEntries = (userId) => {
+    dispatch({ type: 'SET_LOADING' });
+
+    fetch(`/diary${userId}`)
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch({ type: 'GET_ENTRIES', payload: data });
+      })
+      .catch((error) => {
+        dispatch({ type: 'SET_ERROR', payload: error.message });
+      });
   };
 
-  const updateEntry = (entry) => {
-    const updatedEntries = entries.map((e) => (e.id === entry.id ? entry : e));
-    setEntries(updatedEntries);
+  const addEntry = (userId, entry) => {
+    dispatch({ type: 'SET_LOADING' });
+
+    fetch(`/diary${userId}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(entry),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch({ type: 'ADD_ENTRY', payload: data });
+      })
+      .catch((error) => {
+        dispatch({ type: 'SET_ERROR', payload: error.message });
+      });
   };
 
-  const deleteEntry = (id) => {
-    const filteredEntries = entries.filter((e) => e.id !== id);
-    setEntries(filteredEntries);
+  const deleteEntry = (userId, entryId) => {
+    dispatch({ type: 'SET_LOADING' });
+
+    fetch(`/diary${userId}/${entryId}`, {
+      method: 'DELETE',
+    })
+      .then(() => {
+        dispatch({ type: 'DELETE_ENTRY', payload: entryId });
+      })
+      .catch((error) => {
+        dispatch({ type: 'SET_ERROR', payload: error.message });
+      });
   };
 
   return {
-    entries,
+    entries: state.entries,
+    error: state.error,
+    isLoading: state.isLoading,
+    getEntries,
     addEntry,
-    updateEntry,
     deleteEntry,
   };
 };
-
-export default useCalorieContext;
