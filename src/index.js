@@ -1,14 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-<<<<<<< HEAD:frontend/src/index.js
-import './css/calendar.css';
-import './css/about.css'
-import reportWebVitals from './reportWebVitals';
-=======
 import { CalorieProvider } from './context/calorieContext';
 import { UserContextProvider } from './context/userContext';
->>>>>>> 6fa6931f9f64bf6bb3a6d54b06b79e5070eb8e40:src/index.js
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
