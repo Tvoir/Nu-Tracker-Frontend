@@ -7,7 +7,7 @@ export const useCalorieContext = () => {
   const getEntries = (userId) => {
     dispatch({ type: 'SET_LOADING' });
 
-    fetch(`/api/entries/${userId}`)
+    fetch(`/diary${userId}`)
       .then((response) => response.json())
       .then((data) => {
         dispatch({ type: 'GET_ENTRIES', payload: data });
@@ -20,7 +20,7 @@ export const useCalorieContext = () => {
   const addEntry = (userId, entry) => {
     dispatch({ type: 'SET_LOADING' });
 
-    fetch(`/api/entries/${userId}`, {
+    fetch(`/diary${userId}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(entry),
@@ -37,7 +37,7 @@ export const useCalorieContext = () => {
   const deleteEntry = (userId, entryId) => {
     dispatch({ type: 'SET_LOADING' });
 
-    fetch(`/api/entries/${userId}/${entryId}`, {
+    fetch(`/diary${userId}/${entryId}`, {
       method: 'DELETE',
     })
       .then(() => {
