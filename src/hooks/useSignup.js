@@ -10,21 +10,17 @@ export const useSignup = () => {
   const handleSignup = async (formValues) => {
     setIsLoading(true);
     setErrorMessage(null);
-
+  
     try {
-      const { username, email, password } = formValues;
-      const res = await axios.post('http://localhost:5000/signup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, email, password })
-      });
+      const res = await axios.post('http://localhost:5000/signup', formValues);
       setUserData(res.data);
     } catch (error) {
       setErrorMessage(error.message);
     }
-
+  
     setIsLoading(false);
   };
+  
 
   return {
     isLoading,
@@ -32,3 +28,4 @@ export const useSignup = () => {
     handleSignup,
   };
 };
+

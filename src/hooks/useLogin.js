@@ -13,7 +13,7 @@ export const useLogin = () => {
       });
 
       const data = await response.json();
-
+      console.log(data)
       if (response.ok) {
         setUserData(data);
       } else {

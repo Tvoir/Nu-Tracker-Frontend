@@ -20,8 +20,6 @@ const Signup = () => {
     e.preventDefault();
     handleSignup(formValues);
   };
-  
-
 
   return (
     <div>
@@ -80,3 +78,4 @@ const Signup = () => {
 };
 
 export default Signup;
+
