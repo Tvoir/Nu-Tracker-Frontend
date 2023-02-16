@@ -1,20 +1,16 @@
 import { useContext } from 'react';
 import { useUserContext } from './useUserContext';
+import axios from 'axios';
 
 export const useLogin = () => {
   const { setUserData } = useUserContext();
 
-  const handleLogin = async (username, password) => {
+  const handleLogin = async (formValues) => {
+    console.log(formValues)
     try {
-      const response = await fetch('http://localhost:5000/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
-      });
-
-      const data = await response.json();
-      console.log(data)
-      if (response.ok) {
+      const response = await axios.post('http://localhost:5000/login', formValues);
+      const data = response.data;
+      if (response.status === 200) {
         setUserData(data);
       } else {
         throw new Error(data.message);
@@ -26,4 +22,5 @@ export const useLogin = () => {
 
   return { handleLogin };
 };
+
 
