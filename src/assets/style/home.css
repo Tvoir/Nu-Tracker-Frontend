@@ -1,0 +1,33 @@
+h1{
+    color:#92c9b1;
+    text-align: center;
+    font: small-caps bold 24px/1 sans-serif;
+}
+
+p{
+    color: #ba9593;
+    display: inline;
+    text-align: center;
+    padding: 3em;
+    font: small-caps bold 24px/1 sans-serif;
+}
+
+.link{
+    color: #89608e;
+    text-decoration: none;
+    text-align: center;
+    font: small-caps bold 24px/1 sans-serif;
+}
+
+.link:hover{
+    color:#5d5179;
+}
+
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 50%;
+    border-radius: 10%;
+}

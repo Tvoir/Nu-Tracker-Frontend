@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSignup } from '../hooks/useSignup';
+import '../assets/style/signup.css';
 
 const Signup = () => {
   const [formValues, setFormValues] = useState({
@@ -25,8 +26,8 @@ const Signup = () => {
     <div>
       <h1>Signup</h1>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username</label>
+        <div className='signup'>
+          <label className='space2' htmlFor="username">Username</label>
           <input
             type="text"
             name="username"
@@ -35,8 +36,8 @@ const Signup = () => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="email">Email</label>
+        <div className='signup'>
+          <label className='space2' htmlFor="email">Email</label>
           <input
             type="email"
             name="email"
@@ -45,8 +46,8 @@ const Signup = () => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
+        <div className='signup'>
+          <label className='space2' htmlFor="password">Password</label>
           <input
             type="password"
             name="password"
@@ -55,8 +56,8 @@ const Signup = () => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="confirm_password">Confirm Password</label>
+        <div className='signup'>
+          <label className='space2' htmlFor="confirm_password">Confirm Password</label>
           <input
             type="password"
             name="confirm_password"
@@ -66,12 +67,14 @@ const Signup = () => {
           />
         </div>
         {errorMessage && <div>{errorMessage}</div>}
+        <div id="container2">
         <button type="submit" disabled={isLoading}>
           {isLoading ? 'Loading...' : 'Signup'}
         </button>
+        </div>
       </form>
-      <p>
-        Already have an account? <Link to="/login">Login</Link>
+      <p className='txt'>
+        Already have an account? <Link className='link'to="/login">Login</Link>
       </p>
     </div>
   );

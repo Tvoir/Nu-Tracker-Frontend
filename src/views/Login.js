@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLogin } from '../hooks/useLogin';
+import '../assets/style/login.css';
 
 const Login = () => {
   const [formValues, setFormValues] = useState({
@@ -23,8 +24,8 @@ const Login = () => {
     <div>
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username</label>
+        <div className='login'>
+          <label className='space' htmlFor="username">Username</label>
           <input
             type="text"
             name="username"
@@ -33,8 +34,8 @@ const Login = () => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
+        <div className='login'>
+          <label className='space' htmlFor="password">Password</label>
           <input
             type="password"
             name="password"
@@ -44,12 +45,14 @@ const Login = () => {
           />
         </div>
         {errorMessage && <div>{errorMessage}</div>}
-        <button type="submit" disabled={isLoading}>
+        <div id="container">
+        <button id="container" type="submit" disabled={isLoading}>
           {isLoading ? 'Loading...' : 'Login'}
         </button>
+        </div>
       </form>
-      <p>
-        Don't have an account yet? <Link to="/signup">Signup</Link>
+      <p className='txt'>
+        Don't have an account yet? <Link className='link' to="/signup">Signup</Link>
       </p>
     </div>
   );

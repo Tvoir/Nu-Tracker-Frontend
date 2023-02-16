@@ -1,0 +1,39 @@
+.login{
+    font: small-caps bold 18px/1 sans-serif;
+    text-align: center;
+    color: #4f759b;
+}
+
+.space{
+    display:grid;
+}
+
+button{
+    border: none;
+    font: small-caps bold 18px/1 sans-serif;
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+    color: #8f6e5d;
+}
+
+#container {
+   text-align: center;
+   margin-top: 10px;
+   border-radius: 30%;
+}
+
+.txt{
+    display: block;
+}
+
+.link{
+    color: #89608e;
+    text-decoration: none;
+    text-align: center;
+    font: small-caps bold 24px/1 sans-serif;
+}
+
+.link:hover{
+    color:#5d5179;
+}
