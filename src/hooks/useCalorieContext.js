@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { CalorieContext } from '../contexts/calorieContext';
+import { CalorieContext } from '../context/calorieContext';
 
 export const useCalorieContext = () => {
   const { state, dispatch } = useContext(CalorieContext);

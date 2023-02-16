@@ -5,9 +5,9 @@ import { useSignup } from '../hooks/useSignup';
 const Signup = () => {
   const [formValues, setFormValues] = useState({
     username: '',
+    email: '',
     password: '',
     confirm_password: '',
-    email: ''
   });
 
   const { isLoading, errorMessage, handleSignup } = useSignup();
@@ -20,6 +20,8 @@ const Signup = () => {
     e.preventDefault();
     handleSignup(formValues);
   };
+  
+
 
   return (
     <div>
@@ -78,4 +80,3 @@ const Signup = () => {
 };
 
 export default Signup;
-

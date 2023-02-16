@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { useUserContext } from './useUserContext';
 
-const useLogin = () => {
+export const useLogin = () => {
   const { setUserData } = useUserContext();
 
-  const login = async (username, password) => {
+  const handleLogin = async (username, password) => {
     try {
       const response = await fetch('http://localhost:5000/login', {
         method: 'POST',
@@ -24,8 +24,6 @@ const useLogin = () => {
     }
   };
 
-  return { login };
+  return { handleLogin };
 };
-
-export default useLogin;
 

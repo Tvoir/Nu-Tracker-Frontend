@@ -1,24 +1,29 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { useUserContext } from './hooks/useUserContext';
-import Signup from './components/Signup';
-// import Login from './components/Login';
-// import Dashboard from './components/Dashboard';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import Navbar from './components/Navbar';
+// import Home from './pages/Home';
+import Login from './views/Login';
+import Signup from './views/Signup';
+import { useLogin } from './hooks/useLogin';
+// import { useLogout } from './hooks/useLogout';
+import { useSignup } from './hooks/useSignup';
 
 function App() {
-  const { user } = useUserContext();
+  const { handleLogin, isLoading: isLoginLoading } = useLogin();
+  // const { handleLogout } = useLogout();
+  const { handleSignup, isLoading: isSignupLoading } = useSignup();
 
   return (
-    <BrowserRouter>
+    <Router>
+      {/* <Navbar handleLogout={handleLogout} /> */}
       <Routes>
-        {/* Home page redirects to login if user is not authenticated */}
-        {/* <Route path="/" element={user ? <Dashboard /> : <Navigate to="/login" />} /> */}
-        
-        {/* Login and signup routes */}
-        <Route path="/signup" element={<Signup />} />
-        {/* <Route path="/login" element={<Login />} /> */}
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/login" element={<Login handleLogin={handleLogin} isLoading={isLoginLoading} />} />
+        <Route path="/signup" element={<Signup handleSignup={handleSignup} isLoading={isSignupLoading} />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 
 export default App;
+

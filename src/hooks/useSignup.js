@@ -14,9 +14,9 @@ export const useSignup = () => {
     try {
       const { username, email, password } = formValues;
       const res = await axios.post('http://localhost:5000/signup', {
-        username,
-        email,
-        password,
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, email, password })
       });
       setUserData(res.data);
     } catch (error) {
