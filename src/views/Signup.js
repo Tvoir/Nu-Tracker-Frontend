@@ -5,9 +5,9 @@ import { useSignup } from '../hooks/useSignup';
 const Signup = () => {
   const [formValues, setFormValues] = useState({
     username: '',
+    email: '',
     password: '',
     confirm_password: '',
-    email: ''
   });
 
   const { isLoading, errorMessage, handleSignup } = useSignup();

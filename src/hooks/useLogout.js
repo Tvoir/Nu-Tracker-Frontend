@@ -1,21 +1,20 @@
-import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../contexts/userContext';
-import { CalorieContext } from '../contexts/calorieContext';
+import { useEffect } from 'react';
+import { useUserContext } from './useUserContext';
+import { useCalorieContext } from './useCalorieContext';
 
-const useLogout = () => {
-  const { setUser } = useContext(UserContext);
-  const { setEntries } = useContext(CalorieContext);
-  const navigate = useNavigate();
+export const useLogout = () => {
+  const { setUserData } = useUserContext();
+  const { clearCalories } = useCalorieContext();
 
-  const logout = () => {
-    setUser(null);
-    setEntries([]);
-    localStorage.removeItem('access_token');
-    navigate('/login');
-  };
+  useEffect(() => {
+    const logout = async () => {
+      setUserData(null);
+      clearCalories();
+      localStorage.setItem('access-token', '');
+    };
 
-  return logout;
+    logout();
+  }, [setUserData, clearCalories]);
+
+  return null;
 };
-
-export default useLogout;

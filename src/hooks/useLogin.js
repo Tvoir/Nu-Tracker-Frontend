@@ -1,28 +1,26 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { useUserContext } from './useUserContext';
 import axios from 'axios';
 
 export const useLogin = () => {
-  const [user, setUser] = useContext(useUserContext);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const { setUserData } = useUserContext();
 
-  const login = async (username, password) => {
-    setLoading(true);
-    setError(null);
+  const handleLogin = async (formValues) => {
+    console.log(formValues)
     try {
-      const response = await axios.post('/login', { username, password });
-      setUser({
-        ...user,
-        loggedIn: true,
-        token: response.data.token
-      });
-    } catch (err) {
-      setError(err.response.data.message);
-    } finally {
-      setLoading(false);
+      const response = await axios.post('http://localhost:5000/login', formValues);
+      const data = response.data;
+      if (response.status === 200) {
+        setUserData(data);
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 
-  return { loading, error, login };
+  return { handleLogin };
 };
+
+

@@ -1,72 +1,43 @@
-import React, { createContext, useReducer } from 'react';
+import React, { useReducer } from 'react';
 
 const initialState = {
-  user: null,
+  userData: null,
+  loading: true,
   error: null,
 };
 
-const userContext = createContext(initialState);
-
 const userReducer = (state, action) => {
   switch (action.type) {
-    case 'LOGIN':
+    case 'SET_USER_DATA':
       return {
         ...state,
-        user: action.payload,
-        error: null,
+        userData: action.payload,
+        loading: false,
       };
-    case 'LOGOUT':
+    case 'SET_LOADING':
       return {
         ...state,
-        user: null,
-        error: null,
+        loading: action.payload,
       };
-    case 'ERROR':
+    case 'SET_ERROR':
       return {
         ...state,
         error: action.payload,
+        loading: false,
       };
     default:
-      return state;
+      throw new Error(`Unhandled action type: ${action.type}`);
   }
 };
 
-const UserContextProvider = ({ children }) => {
+export const UserContext = React.createContext();
+
+export const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, initialState);
 
-  const login = (user) => {
-    dispatch({
-      type: 'LOGIN',
-      payload: user,
-    });
-  };
-
-  const logout = () => {
-    dispatch({
-      type: 'LOGOUT',
-    });
-  };
-
-  const setError = (error) => {
-    dispatch({
-      type: 'ERROR',
-      payload: error,
-    });
-  };
-
   return (
-    <userContext.Provider
-      value={{
-        user: state.user,
-        error: state.error,
-        login,
-        logout,
-        setError,
-      }}
-    >
+    <UserContext.Provider value={{ state, dispatch }}>
       {children}
-    </userContext.Provider>
+    </UserContext.Provider>
   );
 };
-
-export { userContext, UserContextProvider };

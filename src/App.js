@@ -1,23 +1,27 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import Home from "./views/Home";
+import Login from "./views/Login";
+import Signup from "./views/Signup";
 import { useUserContext } from './hooks/useUserContext';
-import Signup from './components/Signup';
-// import Login from './components/Login';
-// import Dashboard from './components/Dashboard';
+import Dashboard from "./views/Dashboard";
+
 
 function App() {
   const { user } = useUserContext();
 
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* Home page redirects to login if user is not authenticated */}
-        {/* <Route path="/" element={user ? <Dashboard /> : <Navigate to="/login" />} /> */}
-        
-        {/* Login and signup routes */}
-        <Route path="/signup" element={<Signup />} />
-        {/* <Route path="/login" element={<Login />} /> */}
-      </Routes>
-    </BrowserRouter>
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route path="" element={<Home />} />
+          <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
+          <Route path="/signup" element={user ? <Navigate to="/" /> : <Signup />} />
+          {user && (
+            <Route path="/dashboard" element={<Dashboard />} />
+          )}
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
