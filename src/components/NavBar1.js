@@ -14,7 +14,7 @@ function NavBar1() {
           <Nav className="me-auto">
             <Nav.Link href="#mydiet">Food Diary</Nav.Link>
             <Nav.Link href="#ass">Add Macros</Nav.Link>
-            {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+            {/* <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
