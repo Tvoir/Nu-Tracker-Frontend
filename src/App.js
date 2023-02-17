@@ -17,9 +17,9 @@ function App() {
           <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
           <Route path="/signup" element={user ? <Navigate to="/" /> : <Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          {user && (
+          {/* {user && (
             <Route path="/dashboard" element={<Dashboard />} />
-          )}
+          )} */}
         </Routes>
       </Router>
     </div>

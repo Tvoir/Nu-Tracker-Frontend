@@ -24,7 +24,7 @@ p{
     color: #ba9593;
     display: inline;
     text-align: center;
-    padding: 3em;
+    padding: 1em;
     font: small-caps bold 24px/1 sans-serif;
 }
 
@@ -33,6 +33,7 @@ p{
     text-decoration: none;
     text-align: center;
     font: small-caps bold 24px/1 sans-serif;
+    
 }
 
 .link:hover{
@@ -40,9 +41,11 @@ p{
 }
 
 img{
+    margin-top: 10%;
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
     height: 50%;
+    
 }
