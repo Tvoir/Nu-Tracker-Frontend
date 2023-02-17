@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Table from "react-bootstrap/Table";
+import '../assets/style/dashboard.css';
 
 export default function MyDiet() {
     return (
-        <Table striped bordered hover variant="dark">
+        <Table>
             <thead>
                 <tr>
                     <th>Name</th>

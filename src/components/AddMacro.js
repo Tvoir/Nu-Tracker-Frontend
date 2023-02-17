@@ -2,6 +2,7 @@ import React from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Table from "react-bootstrap/Table";
+import '../assets/style/dashboard.css';
 
 export default function AddMacro() {
     return (
