@@ -4,11 +4,10 @@
     color: #4f759b;
 }
 .space2{
-    display:grid;
+    display: grid;
 }
 
-#container2 {
-    border-radius: 30%;
+#container2{
     text-align: center;
     margin-top: 10px;
  }
