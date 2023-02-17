@@ -18,7 +18,7 @@ const Dashboard = () => {
           <td>Fats</td>
         </tr>
         <tr>
-          <td>90g</td>
+          <td>30g</td>
           <td>20g</td>
           <td>23g</td>
           <td>23g</td>
