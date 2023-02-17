@@ -3,11 +3,12 @@
     text-align: center;
     color: #4f759b;
 }
+
 .space2{
     display: grid;
 }
 
-#container2{
+#container2 {
     text-align: center;
     margin-top: 10px;
  }

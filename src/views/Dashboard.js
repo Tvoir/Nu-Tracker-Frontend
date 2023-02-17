@@ -4,6 +4,7 @@ import '../assets/style/dashboard.css';
 
 const Dashboard = () => {
   return ( 
+    <div className='home'>
       <Table >
       <thead >
         <tr>
@@ -114,6 +115,7 @@ const Dashboard = () => {
       </tbody>
       <br />
     </Table>
+    </div>
   )
 }
 

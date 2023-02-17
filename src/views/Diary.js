@@ -4,8 +4,10 @@ import Form from 'react-bootstrap/Form';
 import Table from "react-bootstrap/Table";
 import '../assets/style/dashboard.css';
 
-export default function AddMacro() {
+
+const Diary = () => {
     return (
+      <div className='home'>
       <Table>
         <thead>
                 <tr>
@@ -39,12 +41,15 @@ export default function AddMacro() {
                 <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Control type="text" placeholder="Enter food name" />
       </Form.Group></Form></td>
-      <td><Button variant="primary" type="submit">
+      <td><button type="submit">
         Submit
-      </Button></td>
+      </button></td>
               </tr>
               
             </tbody>
     </Table>
+    </div>
     )
 }
+
+export default Diary;

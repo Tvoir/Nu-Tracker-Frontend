@@ -23,7 +23,7 @@ const Signup = () => {
   };
 
   return (
-    <div>
+    <div className='home'>
       <h1>Signup</h1>
       <form onSubmit={handleSubmit}>
         <div className='signup'>
@@ -76,6 +76,7 @@ const Signup = () => {
       <p className='txt'>
         Already have an account? <Link className='link'to="/login">Login</Link>
       </p>
+      <img src='https://images.unsplash.com/photo-1627483297929-37f416fec7cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80' alt="signup page"></img>
     </div>
   );
 };

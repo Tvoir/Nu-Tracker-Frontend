@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Table from "react-bootstrap/Table";
 import '../assets/style/dashboard.css';
 
-export default function MyDiet() {
+const MyDiet = () => {
     return (
         <Table>
             <thead>
@@ -17,3 +17,5 @@ export default function MyDiet() {
         </Table>
     )
 }
+
+export default MyDiet;

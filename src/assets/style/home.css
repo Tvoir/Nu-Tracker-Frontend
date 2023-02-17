@@ -36,10 +36,6 @@ p{
     
 }
 
-.link:hover{
-    color:#5d5179;
-}
-
 img{
     margin-top: 10%;
     display: block;
@@ -47,5 +43,9 @@ img{
     margin-right: auto;
     width: 50%;
     height: 50%;
-    
+    border-radius: 10%;
+}
+
+.home{
+    background-color: #dcad2c2a;
 }
