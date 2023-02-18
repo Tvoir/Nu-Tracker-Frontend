@@ -9,16 +9,15 @@ export const useLogout = () => {
   const logout = useCallback(async () => {
     setUserData(null);
     clearEntries();
-    if (user === null) {
-      localStorage.setItem('access_token', '');
-    }
-  }, [setUserData, clearEntries, user]);
+    localStorage.clear();
+  }, [setUserData, clearEntries]);
 
   useEffect(() => {
-    logout();
-  }, [logout]);
+    if (user === null) {
+      logout();
+    }
+  }, [user, logout]);
 
   return logout;
 };
-
 

@@ -10,7 +10,7 @@ const DashNavbar = () => {
 
   const handleLogout = () => {
     logout();
-    navigate('/home');
+    navigate('/');
   }
 
   if (isLoading) {
@@ -31,7 +31,7 @@ const DashNavbar = () => {
           <div className="links">
             <Link to="/dashboard">Dashboard</Link>
             <Link to="/add-entry">Add Entry</Link>
-            <Link to="/view-entries">View Entries</Link>
+            {/* <Link to="/view-entry">View Entries</Link> */}
           </div>
         </>
       )}

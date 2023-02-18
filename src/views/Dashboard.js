@@ -18,9 +18,7 @@ const Dashboard = () => {
   const [graphData, setGraphData] = useState([]);
 
   useEffect(() => {
-    console.log('Fetching entries')
     const userId = localStorage.getItem('userId');
-    console.log('userId:', userId)
     getEntries(userId);
   }, []);
 

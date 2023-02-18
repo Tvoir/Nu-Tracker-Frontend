@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useCalorieContext } from '../hooks/useCalorieContext';
+import { useNavigate } from 'react-router-dom';
 
 const AddEntry = () => {
   const { addEntry } = useCalorieContext();
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     date: '',
     food: '',
@@ -13,6 +15,7 @@ const AddEntry = () => {
   });
 
   const handleSubmit = (event) => {
+    
     event.preventDefault();
     const userId = localStorage.getItem('userId');
     addEntry(userId, formData);
@@ -24,13 +27,15 @@ const AddEntry = () => {
       protein: '',
       carbohydrates: '',
     });
+    navigate('/dashboard')
   };
+
+  
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
-
   return (
     <div>
       <h2>Add Calorie Intake Entry</h2>
