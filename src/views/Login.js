@@ -54,7 +54,9 @@ const Login = () => {
       <p className='txt'>
         Don't have an account yet? <Link className='link' to="/signup">Signup</Link>
       </p>
-    <img src='https://images.unsplash.com/photo-1535914254981-b5012eebbd15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80' alt='login page'/>
+    <div className='pic'>
+      <img src='https://images.unsplash.com/photo-1535914254981-b5012eebbd15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80' alt='login page'/>
+    </div>
     </div>
   );
 };

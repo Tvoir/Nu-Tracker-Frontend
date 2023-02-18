@@ -1,10 +1,12 @@
 import React, { useReducer } from 'react';
 
+const storedUser = JSON.parse(localStorage.getItem('user'));
 const initialState = {
-  userData: null,
+  userData: storedUser,
   loading: true,
   error: null,
 };
+
 
 const userReducer = (state, action) => {
   switch (action.type) {
@@ -29,12 +31,9 @@ const userReducer = (state, action) => {
       throw new Error(`Unhandled action type: ${action.type}`);
   }
 };
-
 export const UserContext = React.createContext();
-
 export const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, initialState);
-
   return (
     <UserContext.Provider value={{ state, dispatch }}>
       {children}

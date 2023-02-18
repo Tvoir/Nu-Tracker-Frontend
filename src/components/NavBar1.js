@@ -1,33 +1,63 @@
-import React from "react";
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import '../assets/style/navbar.css';
+import React, { Component } from "react";
+// import Container from 'react-bootstrap/Container';
+// import Nav from 'react-bootstrap/Nav';
+// import Navbar from 'react-bootstrap/Navbar';
+// import NavDropdown from 'react-bootstrap/NavDropdown';
 
+// function NavBar1() {
+//   return (
+//     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{marginBottom: "20px"}}>
+//       <Container>
+//         <Navbar.Brand href="#home">Nu-Tracker</Navbar.Brand>
+//         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+//         <Navbar.Collapse id="responsive-navbar-nav">
+//           <Nav className="me-auto">
+//             <Nav.Link href="#mydiet">Food Diary</Nav.Link>
+//             <Nav.Link href="#ass">Add Macros</Nav.Link>
+            {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+	@@ -25,17 +25,43 @@ function NavBar1() {
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown> */}
+//           </Nav>
+//           <Nav>
+//             <Nav.Link href="#register">Register</Nav.Link>
+//             <Nav.Link eventKey={2} href="#login">
+//               Log in
+//             </Nav.Link>
+//           </Nav>
+//         </Navbar.Collapse>
+//       </Container>
+//     </Navbar>
+//   );
+// }
 
-function NavBar1() {
+// export default NavBar1;
+
+import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import { useUserContext } from '../hooks/useUserContext';
+import { useLogout } from '../hooks/useLogout';
+
+function DashNavbar() {
+  const { user } = useUserContext();
+  const logout = useLogout();
+
   return (
-    <div class="container-fluid">
-    <Navbar collapseOnSelect expand="lg" >
+    <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="/">Nu-Tracker</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
+        <Navbar.Brand>Nu-Tracker</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/dashboard">Food Tracker</Nav.Link>
-            <Nav.Link href="/diary">Food Diary</Nav.Link>
+            <Nav.Link>Welcome to Nu-Tracker {user.name}</Nav.Link>
           </Nav>
-          <Nav>
-            <Nav.Link href="/signup">Register</Nav.Link>
-            <Nav.Link eventKey={2} href="/login">
-              Log in
-            </Nav.Link>
-          </Nav>
+          <Button variant="outline-primary" onClick={logout}>Logout</Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    </div>
   );
 }
 
-export default NavBar1;
+export default DashNavbar;

@@ -1,11 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useUserContext } from '../hooks/useUserContext';
 import '../assets/style/home.css';
 
 const Home = () => {
+  const { user } = useUserContext();
+  const navigate = useNavigate();
+
+  // Redirect to dashboard if user is logged in
+  React.useEffect(() => {
+    if (user) {
+      navigate('/dashboard');
+    }
+  }, [user, navigate]);
+
   return (
     <div className='home'>
       <h1>Welcome to Nu-Tracker</h1>
+      <br />
       <div className='link'>
         <p>Please</p>
         <Link className='link' to='/login'>Log In</Link>
