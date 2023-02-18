@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCalorieContext } from '../hooks/useCalorieContext';
 
-const CalorieIntakeDelete = ({ id }) => {
+const ViewEntry = ({ id }) => {
   const { deleteEntry } = useCalorieContext();
 
   const handleDelete = () => {
@@ -13,4 +13,4 @@ const CalorieIntakeDelete = ({ id }) => {
   );
 };
 
-export default CalorieIntakeDelete;
+export default ViewEntry

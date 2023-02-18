@@ -1,6 +1,6 @@
 import React from 'react';
-import CalorieIntakeForm from '../components/CalorieIntakeForm';
-import CalorieIntakeDelete from '../components/CalorieIntakeDelete';
+import CalorieIntakeForm from '../components/AddEntry';
+import CalorieIntakeDelete from '../components/ViewEntry';
 
 const Diary = () => {
   return (

@@ -6,6 +6,9 @@ export const useUserContext = () => {
   const user = state.userData
 
   const setUserData = (userData) => {
+    localStorage.setItem('access_token', userData.access_token);
+    console.log(localStorage.setItem('access_token', userData.access_token))
+    localStorage.setItem('user', JSON.stringify(userData));
     dispatch({ type: 'SET_USER_DATA', payload: userData });
   };
 

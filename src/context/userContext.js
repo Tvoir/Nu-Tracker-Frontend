@@ -1,10 +1,12 @@
 import React, { useReducer } from 'react';
 
+const storedUser = JSON.parse(localStorage.getItem('user'));
 const initialState = {
-  userData: null,
+  userData: storedUser,
   loading: true,
   error: null,
 };
+
 
 const userReducer = (state, action) => {
   switch (action.type) {

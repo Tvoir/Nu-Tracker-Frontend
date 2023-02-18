@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useCalorieContext } from '../hooks/useCalorieContext';
 
-const CalorieIntakeForm = () => {
+const AddEntry = () => {
   const { addEntry } = useCalorieContext();
   const [formData, setFormData] = useState({
     date: '',
@@ -107,8 +107,8 @@ const CalorieIntakeForm = () => {
   );
 };
 
-export default CalorieIntakeForm
-// import React from "react";
+export default AddEntry
+// import React from "react";AddEntry
 // import Button from 'react-bootstrap/Button';
 // import Form from 'react-bootstrap/Form';
 // import Table from "react-bootstrap/Table";

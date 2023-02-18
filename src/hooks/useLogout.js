@@ -1,20 +1,24 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useUserContext } from './useUserContext';
 import { useCalorieContext } from './useCalorieContext';
 
 export const useLogout = () => {
-  const { setUserData } = useUserContext();
-  const { clearCalories } = useCalorieContext();
+  const { user, setUserData } = useUserContext();
+  const { clearEntries } = useCalorieContext();
+
+  const logout = useCallback(async () => {
+    setUserData(null);
+    clearEntries();
+    if (user === null) {
+      localStorage.setItem('access_token', '');
+    }
+  }, [setUserData, clearEntries, user]);
 
   useEffect(() => {
-    const logout = async () => {
-      setUserData(null);
-      clearCalories();
-      localStorage.setItem('access-token', '');
-    };
-
     logout();
-  }, [setUserData, clearCalories]);
+  }, [logout]);
 
-  return null;
+  return logout;
 };
+
+
