@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useCalorieContext } from '../hooks/useCalorieContext';
 import { useUserContext } from '../hooks/useUserContext';
 import CalorieIntakeHistory from '../components/CalorieIntakeHistory';
-import CalorieIntakeDelete from '../components/CalorieIntakeDelete';
-import CalorieIntakeForm from '../components/CalorieIntakeForm';
+
 import {
   LineChart,
   Line,
@@ -19,9 +18,7 @@ const Dashboard = () => {
   const [graphData, setGraphData] = useState([]);
 
   useEffect(() => {
-    console.log('Fetching entries')
     const userId = localStorage.getItem('userId');
-    console.log('userId:', userId)
     getEntries(userId);
   }, []);
 
@@ -56,8 +53,6 @@ const Dashboard = () => {
       </div>
       <div>
         <CalorieIntakeHistory/>
-        <CalorieIntakeForm/>
-        <CalorieIntakeDelete/>
       </div>
     </div>
   );

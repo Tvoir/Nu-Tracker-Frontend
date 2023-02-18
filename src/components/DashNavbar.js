@@ -1,35 +1,47 @@
-// import React, { Component } from "react";
-// import Container from 'react-bootstrap/Container';
-// import Nav from 'react-bootstrap/Nav';
-// import Navbar from 'react-bootstrap/Navbar';
-// import NavDropdown from 'react-bootstrap/NavDropdown';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useUserContext } from '../hooks/useUserContext';
 import { useLogout } from '../hooks/useLogout';
 
 const DashNavbar = () => {
-  const { user } = useUserContext();
+  const { user, isLoading } = useUserContext();
+  const navigate = useNavigate();
   const logout = useLogout();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  }
+
+  if (isLoading) {
+    return null;
+  }
 
   return (
     <nav>
       <div className="brand">
         <Link to="/">Nu-Tracker</Link>
       </div>
-      <div className="user">
-        {user && <p>Welcome, {user.username}!</p>}
-        <button onClick={logout}>Logout</button>
-      </div>
-      <div className="links">
-        <Link to="/dashboard">Dashboard</Link>
-        <Link to="/diary">Diary</Link>
-      </div>
+      {user && (
+        <>
+          <div className="user">
+            <p>Welcome, {user.username}!</p>
+            <button onClick={handleLogout}>Logout</button>
+          </div>
+          <div className="links">
+            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/add-entry">Add Entry</Link>
+            {/* <Link to="/view-entry">View Entries</Link> */}
+          </div>
+        </>
+      )}
     </nav>
   );
 };
 
 export default DashNavbar;
+
+
 // function NavBar1() {
 //   return (
 //     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{marginBottom: "20px"}}>

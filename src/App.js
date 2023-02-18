@@ -4,7 +4,9 @@ import Login from "./views/Login";
 import Signup from "./views/Signup";
 import { useUserContext } from './hooks/useUserContext';
 import Dashboard from "./views/Dashboard";
-
+import AddEntry from "./components/AddEntry";
+// import ViewEntry from "./components/ViewEntry";
+import DashNavbar from './components/DashNavbar';
 
 function App() {
   const { user } = useUserContext();
@@ -12,6 +14,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        {user && <DashNavbar />}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
@@ -22,7 +25,12 @@ function App() {
           {!user && (
             <Route path="/dashboard" element={<Navigate to="/login" />} />
           )}
-
+          {user && (
+            <Route path="/add-entry" element={<AddEntry />} />
+          )}
+          {/* {user && (
+            <Route path="/view-entry" element={<ViewEntry />} />
+          )} */}
         </Routes>
       </Router>
     </div>

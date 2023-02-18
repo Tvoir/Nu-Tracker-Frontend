@@ -39,10 +39,16 @@ const calorieReducer = (state, action) => {
         ...state,
         isLoading: true,
       };
+    case 'CLEAR_ENTRIES':
+      return {
+        ...state,
+        entries: [],
+      };
     default:
       return state;
   }
 };
+
 
 // Create the context
 export const CalorieContext = createContext();

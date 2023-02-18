@@ -18,7 +18,6 @@ export const useCalorieContext = () => {
       dispatch({ type: 'SET_ERROR', payload: error.message });
     }
   };
-  
 
   const addEntry = (userId, entry) => {
     dispatch({ type: 'SET_LOADING' });
@@ -48,6 +47,10 @@ export const useCalorieContext = () => {
       });
   };
 
+  const clearEntries = () => {
+    dispatch({ type: 'CLEAR_ENTRIES' });
+  };
+
   return {
     entries: state.entries,
     error: state.error,
@@ -55,5 +58,7 @@ export const useCalorieContext = () => {
     getEntries,
     addEntry,
     deleteEntry,
+    clearEntries,
   };
 };
+
