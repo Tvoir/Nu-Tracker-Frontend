@@ -1,9 +1,11 @@
 import { useContext } from 'react';
 import { useUserContext } from './useUserContext';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export const useLogin = () => {
   const { setUserData } = useUserContext();
+  const navigate = useNavigate()
 
   const handleLogin = async (formValues) => {
     console.log(formValues)
@@ -12,6 +14,8 @@ export const useLogin = () => {
       const data = response.data;
       if (response.status === 200) {
         setUserData(data);
+        navigate('/dashboard')
+
       } else {
         throw new Error(data.message);
       }

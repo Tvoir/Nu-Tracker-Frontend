@@ -3,6 +3,7 @@ import { UserContext } from '../context/userContext';
 
 export const useUserContext = () => {
   const { state, dispatch } = useContext(UserContext);
+  const user = state.userData
 
   const setUserData = (userData) => {
     dispatch({ type: 'SET_USER_DATA', payload: userData });
@@ -16,5 +17,5 @@ export const useUserContext = () => {
     dispatch({ type: 'SET_ERROR', payload: error });
   };
 
-  return { state, setUserData, setLoading, setError };
+  return { user, setUserData, setLoading, setError };
 };

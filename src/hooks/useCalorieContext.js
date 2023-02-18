@@ -7,7 +7,10 @@ export const useCalorieContext = () => {
   const getEntries = (userId) => {
     dispatch({ type: 'SET_LOADING' });
 
-    fetch(`/diary${userId}`)
+    fetch(`/diary`, {
+      method: 'GET',
+      headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+    })
       .then((response) => response.json())
       .then((data) => {
         dispatch({ type: 'GET_ENTRIES', payload: data });
@@ -20,9 +23,9 @@ export const useCalorieContext = () => {
   const addEntry = (userId, entry) => {
     dispatch({ type: 'SET_LOADING' });
 
-    fetch(`/diary${userId}`, {
+    fetch(`/diary`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('token')}` },
       body: JSON.stringify(entry),
     })
       .then((response) => response.json())
@@ -37,8 +40,9 @@ export const useCalorieContext = () => {
   const deleteEntry = (userId, entryId) => {
     dispatch({ type: 'SET_LOADING' });
 
-    fetch(`/diary${userId}/${entryId}`, {
+    fetch(`/diary/${entryId}`, {
       method: 'DELETE',
+      headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
     })
       .then(() => {
         dispatch({ type: 'DELETE_ENTRY', payload: entryId });

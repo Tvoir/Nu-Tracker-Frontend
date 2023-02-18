@@ -42,9 +42,9 @@
 
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import { useUserContext } from '../hooks/useUserContext';
-import { useLogout } from '../hooks/useAuth';
+import { useLogout } from '../hooks/useLogout';
 
-function Navbar() {
+function DashNavbar() {
   const { user } = useUserContext();
   const logout = useLogout();
 
@@ -64,4 +64,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default DashNavbar;
