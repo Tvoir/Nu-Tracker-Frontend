@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useCalorieContext } from '../hooks/useCalorieContext';
+import { useUserContext } from '../hooks/useUserContext';
 import {
   LineChart,
   Line,
@@ -15,16 +16,19 @@ const Dashboard = () => {
   const [graphData, setGraphData] = useState([]);
 
   useEffect(() => {
-    getEntries();
+    console.log('Fetching entries')
+    const userId = localStorage.getItem('userId');
+    console.log('userId:', userId)
+    getEntries(userId);
   }, []);
 
   useEffect(() => {
-    if (entries) {
+    console.log('Entries changed:', entries)
+    if (entries && entries.length) {
       const data = entries.map((entry) => ({
         name: entry.date,
         calories: entry.calories,
       }));
-      console.log(data)
       setGraphData(data);
     }
   }, [entries]);
