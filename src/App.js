@@ -13,12 +13,16 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
           <Route path="/signup" element={user ? <Navigate to="/" /> : <Signup />} />
           {user && (
             <Route path="/dashboard" element={<Dashboard />} />
           )}
+          {!user && (
+            <Route path="/dashboard" element={<Navigate to="/login" />} />
+          )}
+
         </Routes>
       </Router>
     </div>

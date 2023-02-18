@@ -3,7 +3,33 @@
 // import Nav from 'react-bootstrap/Nav';
 // import Navbar from 'react-bootstrap/Navbar';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useUserContext } from '../hooks/useUserContext';
+import { useLogout } from '../hooks/useLogout';
 
+const DashNavbar = () => {
+  const { user } = useUserContext();
+  const logout = useLogout();
+
+  return (
+    <nav>
+      <div className="brand">
+        <Link to="/">Nu-Tracker</Link>
+      </div>
+      <div className="user">
+        {user && <p>Welcome, {user.username}!</p>}
+        <button onClick={logout}>Logout</button>
+      </div>
+      <div className="links">
+        <Link to="/dashboard">Dashboard</Link>
+        <Link to="/diary">Diary</Link>
+      </div>
+    </nav>
+  );
+};
+
+export default DashNavbar;
 // function NavBar1() {
 //   return (
 //     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{marginBottom: "20px"}}>
@@ -40,28 +66,6 @@
 
 // export default NavBar1;
 
-import { Navbar, Container, Nav, Button } from 'react-bootstrap';
-import { useUserContext } from '../hooks/useUserContext';
-import { useLogout } from '../hooks/useLogout';
 
-function DashNavbar() {
-  const { user } = useUserContext();
-  const logout = useLogout();
 
-  return (
-    <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Brand>Nu-Tracker</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link>Welcome to Nu-Tracker {user.name}</Nav.Link>
-          </Nav>
-          <Button variant="outline-primary" onClick={logout}>Logout</Button>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
-}
 
-export default DashNavbar;

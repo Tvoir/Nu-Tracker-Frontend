@@ -1,33 +1,33 @@
 import { useContext } from 'react';
+import axios from 'axios';
 import { CalorieContext } from '../context/calorieContext';
 
 export const useCalorieContext = () => {
   const { state, dispatch } = useContext(CalorieContext);
 
-  const getEntries = (userId) => {
-    dispatch({ type: 'SET_LOADING' });
-
-    fetch(`/diary${userId}`)
-      .then((response) => response.json())
-      .then((data) => {
-        dispatch({ type: 'GET_ENTRIES', payload: data });
-      })
-      .catch((error) => {
-        dispatch({ type: 'SET_ERROR', payload: error.message });
+  const getEntries = async (userId) => {
+    try {
+      dispatch({ type: 'SET_LOADING' });
+      const response = await axios.get(`http://localhost:5000/diary/${userId}`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('access_token')}` }
       });
+      const data = response.data;
+      console.log(data);
+      dispatch({ type: 'GET_ENTRIES', payload: data });
+    } catch (error) {
+      dispatch({ type: 'SET_ERROR', payload: error.message });
+    }
   };
+  
 
   const addEntry = (userId, entry) => {
     dispatch({ type: 'SET_LOADING' });
 
-    fetch(`/diary${userId}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(entry),
+    axios.post(`http://localhost:5000/diary`, entry, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('access_token')}` },
     })
-      .then((response) => response.json())
-      .then((data) => {
-        dispatch({ type: 'ADD_ENTRY', payload: data });
+      .then((response) => {
+        dispatch({ type: 'ADD_ENTRY', payload: response.data });
       })
       .catch((error) => {
         dispatch({ type: 'SET_ERROR', payload: error.message });
@@ -37,8 +37,8 @@ export const useCalorieContext = () => {
   const deleteEntry = (userId, entryId) => {
     dispatch({ type: 'SET_LOADING' });
 
-    fetch(`/diary${userId}/${entryId}`, {
-      method: 'DELETE',
+    axios.delete(`http://localhost:5000/diary/${entryId}`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('access_token')}` },
     })
       .then(() => {
         dispatch({ type: 'DELETE_ENTRY', payload: entryId });
