@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import axios from 'axios';
 import { CalorieContext } from '../context/calorieContext';
 
 export const useCalorieContext = () => {
@@ -7,13 +8,12 @@ export const useCalorieContext = () => {
   const getEntries = (userId) => {
     dispatch({ type: 'SET_LOADING' });
 
-    fetch(`/diary`, {
-      method: 'GET',
-      headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+    const url = userId ? `http://localhost:5000/diary/${userId}` : 'http://localhost:5000/diary';
+    axios.get(url, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
     })
-      .then((response) => response.json())
-      .then((data) => {
-        dispatch({ type: 'GET_ENTRIES', payload: data });
+      .then((response) => {
+        dispatch({ type: 'GET_ENTRIES', payload: response.data });
       })
       .catch((error) => {
         dispatch({ type: 'SET_ERROR', payload: error.message });
@@ -23,14 +23,11 @@ export const useCalorieContext = () => {
   const addEntry = (userId, entry) => {
     dispatch({ type: 'SET_LOADING' });
 
-    fetch(`/diary`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('token')}` },
-      body: JSON.stringify(entry),
+    axios.post(`localhost:5000/diary`, entry, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
     })
-      .then((response) => response.json())
-      .then((data) => {
-        dispatch({ type: 'ADD_ENTRY', payload: data });
+      .then((response) => {
+        dispatch({ type: 'ADD_ENTRY', payload: response.data });
       })
       .catch((error) => {
         dispatch({ type: 'SET_ERROR', payload: error.message });
@@ -40,9 +37,8 @@ export const useCalorieContext = () => {
   const deleteEntry = (userId, entryId) => {
     dispatch({ type: 'SET_LOADING' });
 
-    fetch(`/diary/${entryId}`, {
-      method: 'DELETE',
-      headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+    axios.delete(`localhost:5000/diary/${entryId}`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
     })
       .then(() => {
         dispatch({ type: 'DELETE_ENTRY', payload: entryId });

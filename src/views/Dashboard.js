@@ -24,6 +24,7 @@ const Dashboard = () => {
         name: entry.date,
         calories: entry.calories,
       }));
+      console.log(data)
       setGraphData(data);
     }
   }, [entries]);
