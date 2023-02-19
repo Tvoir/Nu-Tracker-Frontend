@@ -3,6 +3,9 @@
 
 Creating an app in order for an individual to track their intake and monitor their journey. The goal is for users to set goals for themselves and have healthier lifestyles. This app helps users accomplish their goals by visualizing their nutritional intake. Each user is displayed their own unique data that they can keep track of and make new entries when needed.
 
+![Lighthouse_metrics](https://user-images.githubusercontent.com/105254750/219964856-10bdd7e4-c345-440b-8568-b10b5ad31ee9.png)
+
+
 Take a look at our backend!
 https://github.com/EricLGDev/Nu-Tracker-Backend
 
