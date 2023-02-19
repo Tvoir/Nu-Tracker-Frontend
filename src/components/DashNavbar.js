@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../hooks/useUserContext';
 import { useLogout } from '../hooks/useLogout';
 import Container from 'react-bootstrap/Container';
