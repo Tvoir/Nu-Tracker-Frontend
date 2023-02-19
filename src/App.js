@@ -11,13 +11,14 @@ import "./assets/style/background.css"
 
 function App() {
 
-  const styles = {
-    html: {
-      backgroundColor: "#f1f1f1",
-      height: "100%",
-    }
-  };
+  // const styles = {
+  //   html: {
+  //     backgroundColor: "#f1f1f1",
+  //     height: "100%",
+  //   }
+  
   const { user } = useUserContext();
+  
 
   return (
     <div className="App">
