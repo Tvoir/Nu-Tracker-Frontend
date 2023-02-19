@@ -2,3 +2,8 @@
     background-color: #92c9b1;
     font: small-caps bold 18px/1 sans-serif;
 }
+
+.small-caps-font24 {
+    color: #8f6e5d;
+    font: small-caps bold 24px/1 sans-serif;
+}
