@@ -1,21 +1,17 @@
 html, .bg-color {
     background: #dcad2c2a;
 }
+
 #linechart {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.entry {
-    background: #ca9e2767;
-}
-
-.navbar {
+.entry, .navbar {
     background: #ca9e2767;
 }
 
 #CIHtable {
     margin: 20px 10px;
 }
-/* background color: #dcad2c2a */
