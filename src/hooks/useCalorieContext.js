@@ -12,7 +12,6 @@ export const useCalorieContext = () => {
         headers: { Authorization: `Bearer ${localStorage.getItem('access_token')}` }
       });
       const data = response.data;
-      console.log(data);
       dispatch({ type: 'GET_ENTRIES', payload: data });
     } catch (error) {
       dispatch({ type: 'SET_ERROR', payload: error.message });
