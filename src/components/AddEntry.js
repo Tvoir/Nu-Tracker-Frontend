@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { useCalorieContext } from '../hooks/useCalorieContext';
 import { useNavigate } from 'react-router-dom';
 
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Table from "react-bootstrap/Table";
+
 const AddEntry = () => {
   const { addEntry } = useCalorieContext();
   const navigate = useNavigate()
@@ -37,128 +41,44 @@ const AddEntry = () => {
     setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
   return (
-    <div>
-      <h2>Add Calorie Intake Entry</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="date">Date:</label>
-          <input
-            type="date"
-            id="date"
-            name="date"
-            value={formData.date}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="food">Food:</label>
-          <input
-            type="text"
-            id="food"
-            name="food"
-            value={formData.food}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="calories">Calories:</label>
-          <input
-            type="number"
-            id="calories"
-            name="calories"
-            value={formData.calories}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="fat">Fat:</label>
-          <input
-            type="number"
-            id="fat"
-            name="fat"
-            value={formData.fat}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="protein">Protein:</label>
-          <input
-            type="number"
-            id="protein"
-            name="protein"
-            value={formData.protein}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="carbohydrates">Carbohydrates:</label>
-          <input
-            type="number"
-            id="carbohydrates"
-            name="carbohydrates"
-            value={formData.carbohydrates}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button type="submit">Add Entry</button>
-      </form>
-    </div>
+    <Form onSubmit={handleSubmit}>
+    <Table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Name</th>
+          <th>Calories</th>
+          <th>Protein</th>
+          <th>Carbs</th>
+          <th>Fat</th>
+        </tr>
+      </thead>
+        <tbody>
+          <tr>
+            <td>
+              <Form.Group className="mb-3" controlId="date"> 
+                <Form.Control name="date" type="date" value={formData.name} onChange={handleChange}/></Form.Group></td>
+                <td>
+              <Form.Group className="mb-3" controlId="food"> 
+                <Form.Control name="food" type="text" value={formData.name} onChange={handleChange}/></Form.Group></td>
+            <td>
+              <Form.Group className="mb-3" controlId="calories"> 
+                <Form.Control name="calories" type="number" value={formData.calories} onChange={handleChange}/></Form.Group></td>
+            <td>
+              <Form.Group className="mb-3" controlId="protein"> 
+                <Form.Control name="protein" type="number" value={formData.protein} onChange={handleChange}/></Form.Group></td>
+            <td>
+              <Form.Group className="mb-3" controlId="fat"> 
+                <Form.Control name="fat" type="number" value={formData.fat} onChange={handleChange}/></Form.Group></td>
+            <td>
+              <Form.Group className="mb-3" controlId="carbohydrates">
+                <Form.Control name="carbohydrates" type="number" value={formData.carbohydrates} onChange={handleChange}/></Form.Group></td>
+            <td><Button className="mb-3" variant="primary" type="submit">Submit</Button></td>
+            </tr>
+          </tbody>
+  </Table>
+  </Form>
   );
 };
 
 export default AddEntry
-// import React from "react";AddEntry
-// import Button from 'react-bootstrap/Button';
-// import Form from 'react-bootstrap/Form';
-// import Table from "react-bootstrap/Table";
-
-// export default function AddMacro() {
-//     return (
-//       <Table>
-//         <thead>
-//                 <tr>
-//                     <th>Name</th>
-//                     <th>Calories</th>
-//                     <th>Protein</th>
-//                     <th>Carbs</th>
-//                     <th>Fat</th>
-//                     <th></th>
-//                 </tr>
-//             </thead>
-//             <tbody>
-//               <tr>
-//                 <td><Form>
-//                 <Form.Group className="mb-3" controlId="formBasicEmail">
-//         <Form.Control type="text" placeholder="Enter food name" />
-//       </Form.Group></Form></td>
-//       <td><Form>
-//                 <Form.Group className="mb-3" controlId="formBasicEmail">
-//         <Form.Control type="text" placeholder="Enter food name" />
-//       </Form.Group></Form></td>
-//       <td><Form>
-//                 <Form.Group className="mb-3" controlId="formBasicEmail">
-//         <Form.Control type="text" placeholder="Enter food name" />
-//       </Form.Group></Form></td>
-//       <td><Form>
-//                 <Form.Group className="mb-3" controlId="formBasicEmail">
-//         <Form.Control type="text" placeholder="Enter food name" />
-//       </Form.Group></Form></td>
-//       <td><Form>
-//                 <Form.Group className="mb-3" controlId="formBasicEmail">
-//         <Form.Control type="text" placeholder="Enter food name" />
-//       </Form.Group></Form></td>
-//       <td><Button variant="primary" type="submit">
-//         Submit
-//       </Button></td>
-//               </tr>
-              
-//             </tbody>
-//     </Table>
-//     )
-// }

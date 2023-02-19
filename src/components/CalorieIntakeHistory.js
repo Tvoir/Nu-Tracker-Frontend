@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useCalorieContext } from '../hooks/useCalorieContext';
 // import { useUserContext } from '../hooks/useUserContext';
+import { Table } from 'react-bootstrap';
 
 const CalorieIntakeHistory = () => {
   const { getEntries, entries } = useCalorieContext();
@@ -21,7 +22,7 @@ const CalorieIntakeHistory = () => {
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        <table>
+        <Table striped bordered hover>
           <thead>
             <tr>
               <th>Date</th>
@@ -44,7 +45,7 @@ const CalorieIntakeHistory = () => {
               </tr>
             ))}
           </tbody>
-        </table>
+        </Table>
       )}
     </div>
   );
