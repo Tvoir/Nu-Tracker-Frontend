@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useCalorieContext } from '../hooks/useCalorieContext';
-import { useUserContext } from '../hooks/useUserContext';
 import CalorieIntakeHistory from '../components/CalorieIntakeHistory';
 import '../assets/style/dashboard.css';
 
@@ -27,7 +26,7 @@ const Dashboard = () => {
     console.log('Entries changed:', entries)
     if (entries && entries.length) {
       const data = entries.map((entry) => ({
-        name: entry.date,
+        name: new Date(entry.date).toLocaleDateString(),
         calories: entry.calories,
       }));
       setGraphData(data);
@@ -45,10 +44,10 @@ const Dashboard = () => {
                   data={graphData}
                   margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
               >
-                  <XAxis dataKey="name" />
+                  <XAxis dataKey="name" tickFormatter={(date) => new Date(date).toLocaleDateString()} />
                   <YAxis />
                   <CartesianGrid stroke="#f5f5f5" />
-                  <Tooltip />
+                  <Tooltip labelFormatter={(date) => new Date(date).toLocaleDateString()} />
                   <Legend />
                   <Line type="monotone" dataKey="calories" stroke="#ff7300" yAxisId={0} />
               </LineChart>
