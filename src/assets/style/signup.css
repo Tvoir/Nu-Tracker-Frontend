@@ -1,0 +1,16 @@
+.signup {
+    font: small-caps bold 18px/1 sans-serif;
+    text-align: center;
+    color: #4f759b;
+}
+
+.space2{
+    display: grid;
+}
+
+#container2 {
+    text-align: center;
+    margin-top: 10px;
+ }
+
+ 

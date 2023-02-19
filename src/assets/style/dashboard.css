@@ -1,0 +1,11 @@
+thead{
+    font: small-caps bold 24px/1 sans-serif;
+    color: #89608e;
+    text-align: center;
+}
+
+tbody{
+    font: small-caps bold 18px/1 sans-serif;
+    text-align: center;
+    color: #ba9593;
+}

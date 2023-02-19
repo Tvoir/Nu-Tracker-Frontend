@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLogin } from '../hooks/useLogin';
+import '../assets/style/login.css';
 
 const Login = () => {
   const [formValues, setFormValues] = useState({
@@ -20,11 +21,11 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className='home'>
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username</label>
+        <div className='login'>
+          <label className='space' htmlFor="username">Username</label>
           <input
             type="text"
             name="username"
@@ -33,8 +34,8 @@ const Login = () => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
+        <div className='login'>
+          <label className='space' htmlFor="password">Password</label>
           <input
             type="password"
             name="password"
@@ -44,13 +45,18 @@ const Login = () => {
           />
         </div>
         {errorMessage && <div>{errorMessage}</div>}
-        <button type="submit" disabled={isLoading}>
+        <div id="container">
+        <button id="container" type="submit" disabled={isLoading}>
           {isLoading ? 'Loading...' : 'Login'}
         </button>
+        </div>
       </form>
-      <p>
-        Don't have an account yet? <Link to="/signup">Signup</Link>
+      <p className='txt'>
+        Don't have an account yet? <Link className='link' to="/signup">Signup</Link>
       </p>
+    <div className='pic'>
+      <img src='https://images.unsplash.com/photo-1535914254981-b5012eebbd15?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80' alt='login page'/>
+    </div>
     </div>
   );
 };
