@@ -29,6 +29,7 @@ const Dashboard = () => {
         name: new Date(entry.date).toLocaleDateString(),
         calories: entry.calories,
       }));
+      data.sort((a, b) => new Date(a.name) - new Date(b.name));
       setGraphData(data);
     }
   }, [entries]);
@@ -44,10 +45,10 @@ const Dashboard = () => {
                   data={graphData}
                   margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
               >
-                  <XAxis dataKey="name" tickFormatter={(date) => new Date(date).toLocaleDateString()} />
+                  <XAxis dataKey="name" interval={0} />
                   <YAxis />
                   <CartesianGrid stroke="#f5f5f5" />
-                  <Tooltip labelFormatter={(date) => new Date(date).toLocaleDateString()} />
+                  <Tooltip />
                   <Legend />
                   <Line type="monotone" dataKey="calories" stroke="#ff7300" yAxisId={0} />
               </LineChart>
@@ -61,3 +62,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
