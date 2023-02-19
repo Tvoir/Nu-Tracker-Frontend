@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useCalorieContext } from '../hooks/useCalorieContext';
 import { useUserContext } from '../hooks/useUserContext';
 import CalorieIntakeHistory from '../components/CalorieIntakeHistory';
+import '../assets/style/dashboard.css';
 
 import {
   LineChart,

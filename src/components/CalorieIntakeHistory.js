@@ -52,3 +52,4 @@ const CalorieIntakeHistory = () => {
 };
 
 export default CalorieIntakeHistory;
+

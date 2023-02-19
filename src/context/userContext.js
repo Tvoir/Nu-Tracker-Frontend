@@ -31,12 +31,9 @@ const userReducer = (state, action) => {
       throw new Error(`Unhandled action type: ${action.type}`);
   }
 };
-
 export const UserContext = React.createContext();
-
 export const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, initialState);
-
   return (
     <UserContext.Provider value={{ state, dispatch }}>
       {children}
