@@ -41,7 +41,7 @@ const AddEntry = () => {
     setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} className='entry'>
     <Table>
       <thead>
         <tr>
