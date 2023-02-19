@@ -17,7 +17,7 @@ const CalorieIntakeHistory = () => {
   }, [entries]);
 
   return (
-    <div>
+    <div id='CIHtable'>
       <h2>Calorie Intake History</h2>
       {isLoading ? (
         <p>Loading...</p>

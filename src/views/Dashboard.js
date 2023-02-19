@@ -35,22 +35,24 @@ const Dashboard = () => {
   }, [entries]);
 
   return (
-    <div className='linechart'>
+    <div className='bg-color'>
         <div>
             <h2>Calorie Intake History</h2>
-            <LineChart
-                width={800}
-                height={400}
-                data={graphData}
-                margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
-            >
-                <XAxis dataKey="name" />
-                <YAxis />
-                <CartesianGrid stroke="#f5f5f5" />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="calories" stroke="#ff7300" yAxisId={0} />
-            </LineChart>
+            <div id='linechart'>
+              <LineChart 
+                  width={800}
+                  height={400}
+                  data={graphData}
+                  margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
+              >
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <CartesianGrid stroke="#f5f5f5" />
+                  <Tooltip />
+                  <Legend />
+                  <Line type="monotone" dataKey="calories" stroke="#ff7300" yAxisId={0} />
+              </LineChart>
+            </div>
       </div>
       <div>
         <CalorieIntakeHistory/>
