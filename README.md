@@ -51,7 +51,7 @@ https://github.com/EricLGDev/Nu-Tracker-Backend
 - Connecting to an API to allow users to quickly search up meals.
 - Create a social network to have users connect and encourage other users.
 
-#Bugs!
+# Bugs!
 
 - useEffect dependency error for the Dashboard! Requires getEntries to be part of the dependency array or wants the array removed entirely. Satisfying either will cause an infinite error loop as the app tries to continuely refresh the user's entries.
 - Mobile views S to L are being formatted properly for the time being. Navbar doesn't adjust to screen size length. History log and Graph over-extend.
