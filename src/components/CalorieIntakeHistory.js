@@ -16,6 +16,11 @@ const CalorieIntakeHistory = () => {
     setIsLoading(false);
   }, [entries]);
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toDateString();
+  };
+
   return (
     <div id='CIHtable'>
       <h2>Calorie Intake History</h2>
@@ -36,7 +41,7 @@ const CalorieIntakeHistory = () => {
           <tbody>
             {entries.slice(-10).map((entry) => (
               <tr key={entry.id}>
-                <td>{entry.date}</td>
+                <td>{formatDate(entry.date)}</td>
                 <td>{entry.food}</td>
                 <td>{entry.calories}</td>
                 <td>{entry.fat}</td>
@@ -52,4 +57,6 @@ const CalorieIntakeHistory = () => {
 };
 
 export default CalorieIntakeHistory;
+
+
 

@@ -7,6 +7,10 @@ const ChartStats = () => {
 
   const processedData = processCalorieData(calorieData);
 
+  const formatDate = (date) => {
+    return new Date(date).toLocaleDateString();
+  };
+
   return (
     <div>
       <h2>Calorie Intake Stats</h2>
@@ -14,12 +18,13 @@ const ChartStats = () => {
         <XAxis dataKey="name" />
         <YAxis />
         <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-        <Tooltip />
+        <Tooltip labelFormatter={formatDate} />
         <Legend />
         <Line type="monotone" dataKey="calories" stroke="#8884d8" />
       </LineChart>
     </div>
   );
-}
+};
 
 export default ChartStats;
+
