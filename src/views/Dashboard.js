@@ -35,7 +35,7 @@ const Dashboard = () => {
   }, [entries]);
 
   return (
-    <div>
+    <div className='linechart'>
         <div>
             <h2>Calorie Intake History</h2>
             <LineChart

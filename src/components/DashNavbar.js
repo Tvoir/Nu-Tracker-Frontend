@@ -19,7 +19,7 @@ const DashNavbar = () => {
   }
 
   return (
-    <nav>
+    <nav className='navbar'>
       <div className="brand">
         <Link to="/">Nu-Tracker</Link>
       </div>

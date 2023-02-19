@@ -7,8 +7,16 @@ import Dashboard from "./views/Dashboard";
 import AddEntry from "./components/AddEntry";
 // import ViewEntry from "./components/ViewEntry";
 import DashNavbar from './components/DashNavbar';
+import "./assets/style/background.css"
 
 function App() {
+
+  const styles = {
+    html: {
+      backgroundColor: "#f1f1f1",
+      height: "100%",
+    }
+  };
   const { user } = useUserContext();
 
   return (
