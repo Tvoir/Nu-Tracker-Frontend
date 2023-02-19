@@ -61,8 +61,8 @@ https://github.com/EricLGDev/Nu-Tracker-Backend
 
 ## Authors
 
-# Jerrorld Kanda
-# Garo Kechkarian
-# Tommy Voir
-# Eric Giron
+- Jerrorld Kanda
+- Garo Kechkarian
+- Tommy Voir
+- Eric Giron
 
